@@ -2,7 +2,7 @@
 FROM python:3.11
 
 # Set the working directory in the container to /app
-WORKDIR ./src
+WORKDIR /app
 
 # Install PortAudio library
 RUN apt-get update && apt-get install -y portaudio19-dev espeak
@@ -20,4 +20,4 @@ COPY . .
 EXPOSE 80
 
 # Run app.py when the container launches
-CMD ["python", "app.py"]
+CMD ["python", "src/main.py"]

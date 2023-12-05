@@ -1,6 +1,7 @@
 import audio_processing
 import conversation
 
+
 def main():
     # Create an instance of AudioProcessing
     audio = audio_processing.AudioProcessing()
@@ -13,11 +14,10 @@ def main():
         user_input = audio.listen()
 
         # Process the user's input and get a response
-        #response = conv.process(user_input)
+        response = conv.process(user_input)
 
         # Speak the response
-        #subprocess.Popen(response, stdout=subprocess.PIPE, shell=True).communicate()
-        audio.speak(user_input)
+        audio.speak(response)
 
 
 if __name__ == "__main__":
