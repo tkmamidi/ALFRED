@@ -1,6 +1,7 @@
 import speech_recognition as sr
 from audio_processing import AudioProcessing
 
+
 class Conversation:
     def __init__(self):
         self.audio_processing = AudioProcessing()
@@ -18,4 +19,6 @@ class Conversation:
         if text:
             self.audio_processing.speak(text)
         else:
-            self.audio_processing.speak("Sorry, I did not get that. Could you please repeat?")
+            self.audio_processing.speak(
+                "Sorry, I did not get that. Could you please repeat?"
+            )

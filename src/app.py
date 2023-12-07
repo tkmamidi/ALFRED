@@ -5,10 +5,12 @@
 import speech_recognition as sr
 import subprocess
 
+
 def execute_unix(inputcommand):
-   p = subprocess.Popen(inputcommand, stdout=subprocess.PIPE, shell=True)
-   (output, _) = p.communicate()
-   return output
+    p = subprocess.Popen(inputcommand, stdout=subprocess.PIPE, shell=True)
+    (output, _) = p.communicate()
+    return output
+
 
 # Initialize the recognizer
 r = sr.Recognizer()

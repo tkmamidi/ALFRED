@@ -29,7 +29,7 @@ docker build -t alfred .
 
 4. Run the Docker container
 ```
-docker run -it --name alfred alfred
+docker run -it --device=/dev/snd --name alfred alfred
 ```
 
 ## Running the tests

@@ -1,3 +1,6 @@
 speechrecognition==3.10.0
 PyAudio==0.2.14
 pyttsx3
+langchain
+pyautogen
+litellm
