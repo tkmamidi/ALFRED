@@ -12,14 +12,15 @@ assistant = autogen.AssistantAgent(
             name="assistant",
             llm_config=default_llm_config,
             system_message="""You are a helpful assistant, Answer the question based on the context.
-                              Keep the answer accurate. Respond "Unsure about answer" if not sure about the answer."""
+                              Keep the answer accurate. Execute the code given to you and respond with the output.
+                              Provide alternatives if the code does not work."""
 
         )
 
 coder = autogen.AssistantAgent(
             name="Coder",
             llm_config=default_llm_config,
-            system_message="You are a coder. Write code to solve the task and execute it. Respond 'Unsure about answer' if not sure about the answer. You can use any programming language to solve the task. Please make sure to include the code in the message and no errors exit before you terminate."
+            system_message="You are a coder. Write code to solve the task and execute it. You can use any programming language to solve the task. Please make sure to include the code in the message and no errors exit before you terminate."
 
         )
 
@@ -37,7 +38,7 @@ user_proxy = autogen.UserProxyAgent(
             # }
         )
 
-group_chat = autogen.GroupChat(agents=[assistant,coder,user_proxy], messages=[], max_round=12)
+group_chat = autogen.GroupChat(agents=[user_proxy,assistant,coder], messages=[], max_round=12)
 manager = autogen.GroupChatManager(
         groupchat=group_chat, llm_config=default_llm_config
     )
